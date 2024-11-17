@@ -1,9 +1,7 @@
-import sys
 import subprocess
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-# 這是我們的 Ui_Dialog 類，它來自 guide.py
-from guide_window import Ui_Dialog  # 假設 guide.py 與主程式在同一目錄下
+from guide_window import Ui_Dialog 
 
 class AnalysisThread(QtCore.QThread):
     analysis_finished = QtCore.pyqtSignal()
@@ -33,25 +31,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         
-        # Start Record 按鈕
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setObjectName("pushButton")
         self.pushButton.setText("Start Record")
         self.pushButton.clicked.connect(self.on_pushButton_click)
         self.horizontalLayout.addWidget(self.pushButton)
         
-        # Start Analysis 按鈕
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_3.setText("Start Analysis")
         self.pushButton_3.clicked.connect(self.on_pushButton_3_click)
         self.horizontalLayout.addWidget(self.pushButton_3)
         
-        # Guide 按鈕
         self.guide = QtWidgets.QPushButton(self.centralwidget)
         self.guide.setObjectName("guide")
         self.guide.setText("Guide")
-        self.guide.clicked.connect(self.on_guide_button_click)  # 綁定事件
+        self.guide.clicked.connect(self.on_guide_button_click)
         self.horizontalLayout.addWidget(self.guide)
         
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -98,19 +93,9 @@ class Ui_MainWindow(object):
         self.label.setText("Analysis completed.")
 
     def on_guide_button_click(self):
-        # 顯示 User Guide 對話框
         self.dialog = QtWidgets.QDialog()
         self.guide_ui = Ui_Dialog()
         self.guide_ui.setupUi(self.dialog)
-        self.dialog.exec_()  # 顯示對話框
+        self.dialog.exec_() 
 
-def main():
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
 
-if __name__ == "__main__":
-    main()
