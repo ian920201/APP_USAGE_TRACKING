@@ -9,7 +9,7 @@ class Ui_Dialog(object):
         
         self.label = QtWidgets.QLabel(Dialog)
         self.label.setGeometry(QtCore.QRect(50, 50, 300, 150))
-        self.label.setText("1. press \"Start Record\" to start recording<br>2. press \"Stop Record\" to stop recording<br>3. press \"Start Analysis\" to start data analysis")
+        self.label.setText("1. Press \"Start Record\" to start recording<br>2. Press \"Stop Record\" to stop recording<br>3. Press \"Start Analysis\" to start data analysis")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
