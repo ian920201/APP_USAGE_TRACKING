@@ -67,7 +67,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "Please press \"Start Record\" or \"Start Analysis\" to start.<br><br>Press guide for more information."))
+        self.label.setText(_translate("MainWindow", "Please press guide for more information if needed."))
 
     def on_pushButton_click(self):
         if self.pushButton.text() == "Start Record":
