@@ -1,1 +1,8 @@
-This is for app_usage_tracking project
+# Prolog
+
+## Quick Start
+
+```
+python main.py
+```
+

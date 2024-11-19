@@ -72,7 +72,7 @@ class Ui_MainWindow(object):
     def on_pushButton_click(self):
         if self.pushButton.text() == "Start Record":
             self.label.setText("Recording...")
-            self.process = subprocess.Popen(["python", "test.py"])
+            self.process = subprocess.Popen(["python", "record.py"])
             self.pushButton.setText("Stop Record")
         else:
             if self.process:

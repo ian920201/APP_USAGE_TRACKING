@@ -106,13 +106,7 @@
 import time
 
 def main():
-    i = 0
-    while True:
-        if i == 10:
-            break
-        print(i)
-        i += 1
-        time.sleep(1)
+    print("Not implement yet.")
         
 if __name__ == "__main__":
     main()
