@@ -95,7 +95,10 @@ def log_app_usage(log_file):
         except KeyboardInterrupt:
             print("程式已終止")
 
-# 執行紀錄程式
-if __name__ == "__main__":
+def main():
     log_file = "app_usage_log.csv"
     log_app_usage(log_file)
+
+# 執行紀錄程式
+if __name__ == "__main__":
+    main()
