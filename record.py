@@ -6,6 +6,7 @@ import win32process
 import win32api
 import win32con
 import csv
+import os
 
 # 獲取當前所有視窗
 def enum_windows(callback):
@@ -38,11 +39,12 @@ def get_monitor_from_window(hwnd):
 def log_app_usage(log_file):
     active_windows = {}
     start_time = {}
-
+    conti_record = os.path.exists(log_file)
     with open(log_file, mode='a', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         # TODO: Add categories
-        writer.writerow(["App Name", "Window Title", "Monitor", "Start Time", "End Time", "Duration (seconds)"])
+        if not conti_record:
+            writer.writerow(["App Name", "Window Title", "Monitor", "Start Time", "End Time", "Duration (seconds)"])
         
         try:
             while True:
@@ -71,7 +73,8 @@ def log_app_usage(log_file):
                         end_time = datetime.datetime.now()
                         duration = (end_time - start_time[hwnd]).total_seconds()
                         old_process_name, old_window_title, old_monitor = active_windows[hwnd]
-                        writer.writerow([old_process_name, old_window_title, old_monitor, start_time[hwnd].strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S"), duration])
+                        if not old_window_title.startswith("record.py"):
+                            writer.writerow([old_process_name, old_window_title, old_monitor, start_time[hwnd].strftime("%Y-%m-%d %H:%M:%S"), end_time.strftime("%Y-%m-%d %H:%M:%S"), duration])
                         file.flush()
 
                         # 更新新的資料
