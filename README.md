@@ -1,5 +1,5 @@
 # Prolog
-This is a module for monitoring app usage on Windows Operating System.
+This is a module for monitoring app usage on Windows Operating System.  
 GitHub repo Link: https://github.com/ian920201/APP_USAGE_TRACKING
 
 ## Environment
